@@ -1,0 +1,144 @@
+wsl --install -d Ubuntu
+wsl -d Ubuntu
+kubectl config get-contexts
+find ./ -type f -name '*:Zone.Identifier' -exec rm {} \;
+sudo update-alternatives --config java
+
+Prod-Grafana:http://10.120.152.123:30735/login
+admin/prom-operator
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+choco
+
+choco install kubernetes-helm
+helm version
+
+ssh root@vpr-sv-r001.aws.t.rd.honda.com
+ssh ITAgit
+NDESpass0
+docker login vpr-sv-cr001.aws.t.rd.honda.com:5050
+
+git clone https://ndesdev.plan.io/ndesdev/vmc-step2-wbs.git
+git clone https://ndesdev.plan.io/ndesdev/e-e-phase1.git
+１．Clone
+２．ブランチをReleaseにする
+　　※2回目以降の場合、ReleaseになっているのでPullで最新を持ってくるのみ。
+３．Releaseにdelivery/factoryブランチをマージ
+　　※REXの場合は、マージなどは無しで作業ブランチを delivery/factory_rexに切り替えて行う
+４．Cloneしたフォルダを右クリック→VSCodeで開く　で対象フォルダを開く
+５．Ctrl＋Shift＋Pから対象コンテナに対するHelm lint, Helm packageを実行してチャートを作成(チャートはCloneしたフォルダに保存)
+helm lint C:\git\e-e-phase1.vmcbom\BOM1\kubernetes\vmcbom-services-public-k6-apiv1
+helm package C:\git\e-e-phase1.vmcbom\BOM1\kubernetes\vmcbom-services-public-k6-apiv1
+６．vmc-msa-cr.hm.jp.honda.com　にSSH、ファイル転送でアクセス
+踏み台
+  t-v6-mng-dev-2.t.rd.honda.com
+ ev6adm/ev6@dm
+７．/root/HD_ITB/の下のvmcbom等の適切なフォルダの下に作成したチャートファイルをコピー
+８．下記コマンドを実行（フォルダ、ファイルはチャートファイルに依存
+cd /root/HD_ITB/VMCBOM/
+addch vmcbom-services-public-k6-v6-apiv1-1.8.2411-update.8.tgz
+cd /root
+./refresh_catalog.sh
+ ９．下記コマンドを実行して登録したチャートを適用する
+※switchを間違えると本番に反映されてしまうので注意
+※今回はプロパティファイルの変更も必要なため一旦保留
+rancher context switch
+showapp vmcbom-services-public-k6-v6-apiv1
+今回はPCSのvmcbomの番号を選択する
+upapp vmcbom-services-public-k6-v6-apiv1 1.8.2411-update.8
+
+rancher context switch
+rancher context switch c-jd4zb:p-4fvfr && rancher ps
+rancher ps
+type addch
+
+https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=95671643#id-[MSA/ATLASIF]MicroServiceArchitecture%E9%81%8B%E7%94%A8%E6%89%8B%E5%BC%95%E3%81%8D-MSA%E9%81%8B%E7%94%A8%E6%89%8B%E5%BC%95%E3%81%8D
+https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=242335907
+
+admin/zabbix
+
+DDL適用方法
+・ora7(ITB)に下記ユーザーでSSHでログイン
+vmc-ora7.hm.jp.honda.com
+oracle/P@ssw0rd
+DJurykKS7LWT
+rmLMkjdk5N
+V7uWRd5v
+
+下記の様に依頼のあったチケット番号のフォルダを作成
+mkdir /vol3/v6infra/work/deploy/DB/チケット番号
+上記フォルダに対象SQLファイルを転送
+--------------------
+・ora3(QA)に下記ユーザーでログイン
+vmc-ora3.hm.jp.honda.com
+oracle/P@ssw0rd
+作成したフォルダに移動
+cd /vol3/v6infra/work/deploy/DB/チケット番号
+DBに接続※ATLAS_PDM_DATA以外の場合は、適宜依頼対象に合わせる
+※PCS環境の場合は下記
+sqlplus ATLAS_PDM_DATA/rmLMkjdk5N@vmc-ora3:1521/ATLASDBPCPCS
+
+API登録方法
+service_factory_API_list(APIGW_deploy)_BOM_v2に記載する。
+行ごとをapi.txtにコピーする。
+cd C:\Users\RJ062504\Desktop\成果物\202410\generate_API_yaml
+python generate_API_yaml.py api.txt
+対象環境を選択：PCS環境の場合は、BlueからGrep置換して作る
+Grep置換①/blue　→　/pcs
+Grep置換②-qa　→　-pcs
+kubectl apply -f RewritePath\getbusinesssegfrompartnum-rewrite-path.yaml -n vmcbom-services-public-api --kubeconfig=C:\kubectl\PCS-kubeconfig
+kubectl apply -f ContainerAPI\getbusinesssegfrompartnum-23-ingress.yaml -n vmcbom-services-public-api --kubeconfig=C:\kubectl\PCS-kubeconfig
+886ad165-eb9e-4603-a223-8b69de7f9efa
+
+０．bitbucketからソースコードをCloneする
+　Honda Bitbucket(一部のbom系)：
+　NDES Bitbucket(CAD系)：
+１．build.gradleの下記Jibバージョンを変更する(1度変更してあれば次回以降不要)
+これは、今年からイメージの形式が変わり、従来の方法ではビルド出来なくなったため
+    id 'com.google.cloud.tools.jib' version '2.3.0'
+    ↓
+    id 'com.google.cloud.tools.jib' version '3.3.1'
+ 
+２．build.gradleの下記ビルドとしてのコンテナバージョンを変更する
+jib {
+	from.image = 'amazoncorretto:8-alpine-jre'
+ 
+	to {
+		image = 'vpr-sv-cr001.aws.t.rd.honda.com:5050/vmccad/registry/vmccad-services-newdrawrelset-n-apiv1'
+		tags = [ version, 'v0.2.4' ]
+	}
+３．WSL環境にコピー
+４．下記コマンドにてビルド(パスは対象プロジェクトに読み替える)
+cd ifcad_atl4n-api-java-master/
+chmod +x gradlew
+./gradlew jibDockerBuild
+５．下記コマンドにてイメージの物理ファイルを作成する
+docker save -o cad4n_v0.1.18.tar vpr-sv-cr001.aws.t.rd.honda.com:5050/vmccad/registry/vmccad-services-dpm-n-apiv1:v0.1.18
+６．下記AWSサーバーにイメージをコピー、プッシュする
+10.220.208.95
+大抵は/tmpにコピーする
+プッシュ
+cd /tmp
+docker push vpr-sv-cr001.aws.t.rd.honda.com:5050/vmccad/registry/vmccad-services-dpm-n-apiv1:v0.1.18
+７．チャート作成
+ndesコンテナのチャートを管理するリポジトリ
+https://ndesdev.plan.io/ndesdev/vmc-step2-wbs.atlas_service_cad_ndes.git
+対象コンテナのChart.yamlとapp-readme.mdを更新する
+D:\vmc-step2-wbs.atlas_service_cad_ndes\phase1\ifcad_atl4n-api-java-master\kubernetes\vmccad-services-dpm-n-apiv1
+app-readme.md
+新しいチャートのバージョン採番と説明を記述
+1.0.2405-update4 PCS用コンテナ更新(#34220)
+Chart.yaml
+先ほど作成したコンテナのバージョン(appversion)とチャートのバージョン(version)を記載
+helm lint,helm packageにてチャートファイルを作成
+８．以降はチャート作成してデプロイする時と同様の手順となる
+docker save -o cad13n_v0.2.4.tar vpr-sv-cr001.aws.t.rd.honda.com:5050/vmccad/registry/vmccad-services-newdrawrelset-n-apiv1:v0.2.4
+
+docker run --name BOM1 --memory=300mb -p 80:80 -v /mnt:/mnt --env SPRING_PROFILES_ACTIVE=pcs --env SPRING_CONFIG_LOCATION=/mnt/property/vmcbom-services-public-k6-apiv1/application-pcs.properties -it bom1:latest
+docker run --name BOM2 --memory=300mb -p 80:80 -v /mnt:/mnt --env SPRING_PROFILES_ACTIVE=pcs --env SPRING_CONFIG_LOCATION=/mnt/property/vmcbom-services-public-k6-v6-apiv1/application-pcs.properties -it bom2:latest
+
+spring.datasource.url=jdbc:oracle:thin:@//vmc-ora3.hm.jp.honda.com:1521/ATLASDBPCPCS
+spring.datasource.username=ATLAS_PDM_DATA
+spring.datasource.password=rmLMkjdk5N
+spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+

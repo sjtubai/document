@@ -1,0 +1,183 @@
+AWS Access key
+export AWS_ACCESSKEY_ID=AKIAVN26YKY5MBKQHF3V
+export AWS_SECRET_ACCESSKEY=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
+C:\Users\jo.rai\.aws\config
+aws-vault exec dev -- aws eks update-kubeconfig --region ap-northeast-1 --name mxv-dev-share-cluster
+aws-vault exec dev
+Dococar202401
+export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain mxv-dev-codeartifact-domain --domain-owner 373324011066 --region ap-northeast-1 --query authorizationToken --output text`
+./gradlew clean
+./gradlew mbGenerator
+./gradlew build
+./gradlew publish
+./gradlew clean bootJar
+./gradlew wrapper --gradle-version=7.4
+ 
+maxiv-mobility-scan
+mysql/123456
+ 
+git clone https://github.com/ds-iot/system-test.git
+git log -n 3 publish-spec.yaml
+git rm -r --cached .
+git add -A
+git commit -m "モビスキャン作成"
+git commit -m "datadog"
+git push
+ 
+git branch -a
+git checkout --force delivery/factory_rex
+git checkout develop
+git checkout -- .
+git branch --set-upstream-to=origin/develop develop
+git branch -d master
+git pull
+ 
+git reset --soft ORIG_HEAD
+git push -f origin HEAD
+git merge origin/main
+ 
+git token
+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
+ 
+wsl -d Ubuntu
+Ubuntu: username/password
+root/root
+find ./ -type f -name '*:Zone.Identifier' -exec rm {} \;
+env | grep AWS
+ 
+Docker
+ssh deepstream-build
+aws ssm start-session --target i-0159303c29380d5eb
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 373324011066.dkr.ecr.ap-northeast-1.amazonaws.com
+sudo service docker start
+Start-Service docker
+sudo dockerd &
+docker pull 373324011066.dkr.ecr.ap-northeast-1.amazonaws.com/maxiv-dev-mobility-scan-web-api:f0fae80a5c5daa7555cfa9f9430632f20ef1e3dd
+docker ps -a
+docker run -it deepstream-application:latest
+docker run -it -d --gpus all --name objectdetection_process -v /home/ec2-user/package_v1.1/mobiscan-common:/opt/data objectdetection_process:latest bash
+docker start deepstream-application
+docker stop deepstream-application
+docker exec -it deepstream-application bash
+docker commit deepstream-application deepstream-application:mount
+docker rm `docker ps -a -q`
+docker image ls
+docker rmi -f
+docker tag
+docker logs -f --tail=100 aa2fd224d149
+docker stats -a --no-stream
+docker save deepstream-application:latest > deepstream-application.tar
+docker load < deepstream-application.tar
+docker load --input .\BOM1.tar
+docker swarm init
+docker node ls
+cd /home
+docker-compose ps -a
+docker-compose up -d
+docker-compose restart
+docker-compose down
+ 
+kubectl -n tenant describe secrets mxv-mobiscan-rds-setting-json
+kubectl -n tenant get secret mxv-mobiscan-rds-setting-json -o jsonpath='{.data.setting\.json}' | base64 -d
+ 
+■ArgoCD操作方法
+https://github.com/ds-iot/common-developers-guide/wiki/ArgoCD%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95
+aws-vault exec dev
+Dococar202401
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+ 
+■【Getting Started】EKSへの接続方法
+https://github.com/ds-iot/common-developers-guide/wiki/%E3%80%90Getting-Started%E3%80%91EKS%E3%81%B8%E3%81%AE%E6%8E%A5%E7%B6%9A%E6%96%B9%E6%B3%95#%E6%8E%A5%E7%B6%9A%E5%85%88eks%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88
+aws eks update-kubeconfig --region ap-northeast-1 --name mxv-dev-mobiscan-cluster
+kubectl config get-contexts
+kubectl config use-context arn:aws:eks:ap-northeast-1:373324011066:cluster/mxv-dev-mobiscan-cluster
+kubectl -n tenant get pods
+kubectl -n tenant get PriorityClass
+kubectl -n tenant scale deploy maxiv-mobility-scan-web-api-az4 --replicas=0
+ 
+■デバイスメッセージ送信
+https://github.com/ds-iot/maxiv-specification/tree/main/tools/deviceEmurator
+cd C:\Users\B200763\Desktop\work\Git\aws-iot-device-sdk-python-v2\samples\deviceEmurator
+python3 deviceEmurator.py provisioning -imei 351040360523054
+python3 deviceEmurator.py publish -cid 9730f523-b7bd-4395-8cdc-a86db843ae67 -message '{"svc":"maxiv","ver":1,"cid":"9730f523-b7bd-4395-8cdc-a86db843ae67","meta":{"evid":"455a7350-fb98-4c74-900d-3d0e263a6a17","file":[{"path":"test/1/240307110453.mp4","size":2900000,"name":"240307110453.mp4","source":1,"type":"video/mp4","version":"oKa3RPcBkiOWgzkvWhmCQ_cVmJMJrNqt","timestamp":"2024-03-07T15:57:07+09:00"},{"path":"test/1/240307110453.nmea","size":46900,"name":"240307110453.nmea","source":1,"type":"text/plain","version":"1e1yQZxXOA1AkVo.TE11NuvaAse83Qbh","timestamp":"2024-03-07T15:57:07+09:00"}]}}'
+python3 deviceEmurator.py publish -cid 9730f523-b7bd-4395-8cdc-a86db843ae67 -message '{"svc":"maxiv","ver":1,"cid":"9730f523-b7bd-4395-8cdc-a86db843ae67","meta":{"evid":"455a7350-fb98-4c74-900d-3d0e263a6a17","file":[{"path":"test/2/240307110158.nmea","size":1500000,"name":"240307110158.nmea","source":1,"type":"text/plain","version":"I_jLzoGuqpYC8tVdK.zXpeqzIglU9bA0","timestamp":"2024-03-07T15:57:26+09:00"}]}}'
+cd C:\Users\B200763\Desktop\work\Git\maxiv-emulators\kinesis-testdata-provider
+java -jar kinesis-testdata-provider-all.jar '{"cid":"589792db-2c6d-c28d-27be-c20c1871519a","customerCode":"210d6237-9486-768c-0c74-109b8f460318","receivedTimestamp":1655359812288,"expiredAt":1668319812,"mid":"8310bb26-877a-4d2b-b3f0-d1ad2cef4053","body":{"svc":"maxiv","ver":1,"cid":"9730f523-b7bd-4395-8cdc-a86db843ae67","meta":{"evid":"455a7350-fb98-4c74-900d-3d0e263a6a17","file":[{"path":"test/1/240307110453.mp4","size":2900000,"name":"240307110453.mp4","source":1,"type":"video/mp4","version":"oKa3RPcBkiOWgzkvWhmCQ_cVmJMJrNqt","timestamp":"2024-03-07T15:57:07+09:00"},{"path":"test/1/240307110453.nmea","size":46900,"name":"240307110453.nmea","source":1,"type":"text/plain","version":"1e1yQZxXOA1AkVo.TE11NuvaAse83Qbh","timestamp":"2024-03-07T15:57:07+09:00"}]}}}'
+java -jar kinesis-testdata-provider-all.jar '{"cid":"589792db-2c6d-c28d-27be-c20c1871519a","customerCode":"210d6237-9486-768c-0c74-109b8f460318","receivedTimestamp":1655359812288,"expiredAt":1668319812,"mid":"8310bb26-877a-4d2b-b3f0-d1ad2cef4053","body":{"svc":"maxiv","ver":1,"cid":"9730f523-b7bd-4395-8cdc-a86db843ae67","meta":{"evid":"455a7350-fb98-4c74-900d-3d0e263a6a17","file":[{"path":"test/2/240307110158.nmea","size":1500000,"name":"240307110158.nmea","source":1,"type":"text/plain","version":"I_jLzoGuqpYC8tVdK.zXpeqzIglU9bA0","timestamp":"2024-03-07T15:57:26+09:00"}]}}}'
+ 
+■RDSポートフォワーディング手順（改定版）
+https://github.com/ds-iot/common-developers-guide/wiki/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AF%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%89%8B%E9%A0%86%EF%BC%88%E6%94%B9%E5%AE%9A%E7%89%88%EF%BC%89
+vim ~/.aws/config
+vim ~/.ssh/config
+aws-vault exec dev
+Dococar202401
+ssh dev
+ssh deepstream-build
+scp -p deepstream.zip deepstream-build:/home/ec2-user/
+unzip deepstream.zip
+zip -r deepstream.zip mobiscan-common
+aws s3 cp deepstream.zip s3://mxv-dev-share-ec2-setting-373324011066/mobiscan/deepstream/
+scp -p deepstream-build:/home/ec2-user/package_v1.1/deepstream.zip .
+aws rds describe-db-instances --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
+psql -h localhost -p 5433 -U postgres -d postgres
+CF~jA%s?E$CVISU1Y)g79IQSSDyi
+select * from m_skip_hour;
+ 
+■モビスキャンWEBAPI初回ビルドmaxiv-mobility-scan-web-api
+aws eks --region ap-northeast-1 update-kubeconfig --name mxv-dev-mobiscan-cluster
+kubectl -n tenant get pods
+kubectl -n tenant describe pod detect-construction-07ad1931-f52f-4fcd-b414-9c35b685882f-s9vdq
+kubectl -n tenant logs detect-construction-07ad1931-f52f-4fcd-b414-9c35b685882f-s9vdq -c object-detection-process
+kubectl -n tenant exec -it detect-construction-abb603b7-686a-4269-b654-b890247a237d-wb6ch -- sh
+kubectl -n tenant port-forward maxiv-mobility-scan-web-api-az4-7465744869-57jjf 3001:8080
+http://localhost:3001/mobility/gpsPositiong
+Postman ---------------- Request Header : dummy=mobiscan ; mobiScan=mobiscan
+ 
+■単体テストmaxiv-mobility-scan-scan-stream
+cd C:\Users\B200763\Desktop\work\Git\maxiv-emulators\kinesis-testdata-provider
+aws-vault exec dev -- java -jar kinesis-testdata-provider-all.jar '{"cid":"589792db-2c6d-c28d-27be-c20c1871519a","customerCode":"210d6237-9486-768c-0c74-109b8f460318","receivedTimestamp":1655359812288,"expiredAt":1668319812,"mid":"8310bb26-877a-4d2b-b3f0-d1ad2cef4053","body":{"svc":"maxiv","ver":1,"cid":"860728060311425","meta":{"evid":"455a7350-fb98-4c74-900d-3d0e263a6a17","file":[{"path":"75ed4b49-b082-4aee-b312-5dd54a4ddf96/image/2022/12/02/pn_2022-12-02T09:12:41+09:00_1.mp4","size":476106,"name":"pn_2022-12-02T09:12:41+09:00_1.mp4","source":1,"type":"mp4","version":"vTe6svY5nrZEmZs9CFvgD1DAUpune3FB","timestamp":"2022-12-02T09:12:41+09:00"},{"path":"75ed4b49-b082-4aee-b312-5dd54a4ddf96/image/2022/12/02/pn_2022-12-02T09:12:41+09:00_1.NMEA","size":476106,"name":"pn_2022-12-02T09:12:41+09:00_1.NMEA","source":1,"type":"NMEA","version":"vTe6svY5nrZEmZs9CFvgD1DAUpunNMEA","timestamp":"2022-12-02T09:12:41+09:00"}]}}}'
+aws-vault exec dev -- java -jar kinesis-testdata-provider-all.jar '{"expiredAt":1729314614,"receivedTimestamp":1716354614003,"customerCode":"10","mid":"f8819459-1f9b-069d-9315-e846bd64215f","body":{"svc":"maxiv","ver":1,"meta":{"geo":{"loc":[139.775283,35.684125],"prop":{"mode":1,"pdop":0,"tom":0,"alt":0,"sats":0,"calb":0,"vel":0,"dir":0,"qua":0}},"evid":"273f5115-ebd2-41a6-a773-5bd8e594c44e","file":[{"path":"83b8d3ac-259d-4106-ae34-36610975ade2/nmea/2024/05/22/nmea_2024-05-22T14:10:07+09:00_273f5115-ebd2-41a6-a773-5bd8e594c44e.nmea","size":252857,"name":"nmea_2024-05-22T14:10:07+09:00_273f5115-ebd2-41a6-a773-5bd8e594c44e.nmea","source":1,"type":"text/plain","version":"XSZvd2f3x_7fuyjOGHaPQABiBOBDfkc1","timestamp":"2024-05-22T14:10:07+09:00"}]}},"cid":"83b8d3ac-259d-4106-ae34-36610975ade2"}'
+ 
+■性能試験locust
+cd C:\system-test\01_β版総合試験\20_アプリ\PF性能試験\infra
+kubectl config get-contexts
+aws eks update-kubeconfig --region ap-northeast-1 --name load-cluster2
+kubectl config use-context arn:aws:eks:ap-northeast-1:373324011066:cluster/load-cluster2
+
+kubectl get po,deploy,svc
+kubectl apply -k loads-dev
+kubectl apply -f /home/k8s/ingress/RewritePath
+kubectl apply -f /home/k8s/ingress/ContainerAPI
+kubectl apply -f /home/k8s/pods
+kubectl port-forward locust-master-mobiscan-lambda-7bdbfcb884-k2vgv 8089:8089
+http://localhost:8089/
+kubectl scale deploy locust-worker-mobiscan --replicas=0
+kubectl scale deploy locust-master-mobiscan --replicas=0
+kubectl scale deployment bom1-deployment --replicas=0
+kubectl scale deployment bom1-deployment --replicas=1
+kubectl rollout restart deployment locust-worker-mobiscan
+kubectl logs -f --tail=100 pod/bom2-76c646d77d-kvlmc
+ 
+object_detection.sh
+sed -i -e '/^model-engine-file=\/workspace\/project\/primary.engine$/{s//model-engine-file=\/workspace\/project\/work\/construction_model_b1.engine/;h};${x;/./{x;q0};x;q1}' /home/ec2-user/package_v1.1/mobiscan-common/result_config/deepstream-app-config.txt
+sed -i -e '/^batch-size=1$/{s//batch-size=1/;h};${x;/./{x;q0};x;q1}' /home/ec2-user/package_v1.1/mobiscan-common/result_config/deepstream-app-config.txt
+mask.sh
+sed -i -e 's/model-engine-file=\/workspace\/project\/primary.engine/model-engine-file=\/workspace\/project\/work\/mask_model_b1.engine/g' /home/ec2-user/package_v1.1/mobiscan-common/result_config/deepstream-app-config.txt
+replace "batch-size=1" "batch-size=1" /home/ec2-user/package_v1.1/mobiscan-common/result_config/deepstream-app-config.txt
+grep .engine deepstream-app/src/scripts/template_config/deepstream-app-config.txt
+grep .engine deepstream-app/src/scripts/template_config_for_mask/deepstream-app-config.txt
+grep .engine result_config/deepstream-app-config.txt
+grep .engine result_config_for_mask/deepstream-app-config.txt
+sudo bash object_detection.sh objectdetection_container 30c630b930c8 2023-01-01T00:00:00 1
+ 
+curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/gpsPosition?district_id=4&extract_start_time=2024-05-17%2001:43:00.111&extract_end_time=2024-05-17%2001:43:59.999
+curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/detectedConstruction?district_id=4&extract_start_time=2024-05-20%2001:00:00.001&extract_end_time=2024-05-20%2001:09:59.999
+curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/movie/12134/a4bb7152-9082-4507-8089-eef95d03cb63.mp4
+ 
+fields @timestamp, @message
+| filter @message like /レコード処理タスク開始/ or @message like /SQSへのメッセージ送信/
+| sort @timestamp desc
+| limit 10000
+ 
+lambda memory

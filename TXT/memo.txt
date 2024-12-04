@@ -1,0 +1,77 @@
+JPU\RJ062504
+rj062504@jpn.mds.honda.com
+RJ062504@jpn.mds.honda.com
+
+leixu@basenet.co.jp
+LEI XU (徐 磊 GE) lei_xu_gst@jp.honda
+Base@202408
+Base2024
+Base202408
+Aa111671
+NDESpass0
+
+http://10.220.208.88/jenkins/
+admin_vmc/p@ssw0rd
+
+https://rancherdesktop.io/
+https://learn.microsoft.com/ja-jp/windows/wsl/install-manual
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+wsl --set-default-version 2
+--------------------------------
+Dockerfile
+
+FROM alpine:3.4
+CMD echo "Helo, World!"
+--------------------------------
+sudo service docker start
+docker version
+docker build -t hello_world:latest .
+docker run hello_world
+docker stop hello_world
+wsl -l -v
+wsl
+wsl -d docker-desktop
+cd /mnt/c/Users/RJ062504/Desktop/成果物/202409
+docker run -p 8888:8888 --name hello_world -v ${PWD}/src:/var/www hello_world:latest
+docker image ls
+docker rmi -f ab4c2a80e63f
+docker ps -a
+docker rm -vf $(docker ps -aq)
+
+docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
+admin/123456
+
+mvn compile
+mvn package
+java -jar .\target\hello_api-0.0.1-SNAPSHOT.jar
+docker build -t hello_api:latest
+docker run -p 8080:8080 hello_api
+
+docker login -u leixu1206
+dckr_pat_5RRmQ0qhEu460lWay4OxYIeRxwA
+docker tag 7c326c2f7ddd leixu1206/helloapi:latest
+docker push leixu1206/helloapi:latest
+
+netstat -aon
+taskkill /F /pid 18916
+https://qiita.com/strawberryjam/items/9f2d68bc95c11478cfac
+kubectl config get-contexts
+kubectl config use-context local
+kubectl get po,deploy,svc
+-- kubectl create deployment helloapik8s --image leixu1206/helloapi -o yaml --dry-run=client > deployment.yaml
+-- kubectl create service clusterip helloapipod --tcp 80:8080 -o yaml --dry-run=client > service.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl delete pods helloapik8s-54dd688758-2l2r9 --grace-period=0 --force
+
+kubectl describe pod helloapik8s
+kubectl port-forward helloapik8s-f56b84444-94wmr 8081:8080
+https://docs.konghq.com/kubernetes-ingress-controller/latest/get-started/
+export PROXY_IP=$(kubectl get svc --namespace kong kong-gateway-proxy -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+echo $PROXY_IP
+
+https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=254340773
+

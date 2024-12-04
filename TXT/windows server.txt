@@ -1,0 +1,42 @@
+JPU\RJ006792
+Uemu2409
+
+JPU\T-GIRAFE-SysAdm-Test
+HHPp5998
+
+REWSUser
+NDESpass0
+
+優先DNSサーバ：　172.23.4.140
+代替DNSサーバ：　172.23.111.51
+優先DNSサーバ：　10.121.38.45
+代替DNSサーバ：　10.121.38.7
+jpn.mds.honda.com
+
+dev-rex-cd-4301
+dev-rex-cd-4701
+dev-rex-cd-4702
+dev-rex-cd-4703
+dev-rex-cd-4302
+dev-rex-at-0201
+hgt-mp-w20x-rex
+
+ホスト名：vmc-jobcon-qa.hm.jp.honda.com
+ ユーザーID: root
+  パスワード：Hr00tP@ss
+
+grep -ir /blue > grep_blue.txt
+grep -ir "\-qa" > grep_qa.txt
+grep -ir itb > grep_itb.txt
+
+MT_USER_VO_MAP
+
+1つ目はsysdba
+export ORACLE_SID=CDBA2_2
+sqlplus / as sysdba
+alter session set container=ATLASDBPCPCS;
+で接続して実行
+2つ目はATLAS_SPRING ユーザにて実行。
+export ORACLE_SID=CDBA2_2
+sqlplus ATLAS_SPRING/welcome1@ATLASDBPCPCS
+
