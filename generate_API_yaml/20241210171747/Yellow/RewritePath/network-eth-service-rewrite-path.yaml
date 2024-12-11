@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: network-eth-service-rewrite-path
+config:
+  replace:
+    uri: /data/network:Ethservice
+plugin: request-transformer

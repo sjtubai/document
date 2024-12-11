@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: variant-bcan-table-rewrite-path
+config:
+  replace:
+    uri: /data/variant:Bcantable
+plugin: request-transformer

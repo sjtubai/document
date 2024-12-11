@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: variant-eth-signal-based-table-23-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, vmc-step2h-ene-acl , variant-eth-signal-based-table-rewrite-path
+spec:
+  rules:
+  - host: vmc-osb-itb.hm.jp.honda.com
+    http:
+      paths:
+      - backend:
+          serviceName: vmceeph2-services-public-eeph2h-2-apiv1
+          servicePort: 80
+        path: /yellow/vmceeph2/v1/data/variant:Ethsignalbasedtable
+        pathType: ImplementationSpecific
+

@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: network-signal-rewrite-path
+config:
+  replace:
+    uri: /data/network:Signal
+plugin: request-transformer

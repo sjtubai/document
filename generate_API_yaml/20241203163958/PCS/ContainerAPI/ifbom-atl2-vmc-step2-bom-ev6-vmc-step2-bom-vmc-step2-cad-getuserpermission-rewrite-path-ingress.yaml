@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ifbom-atl2-vmc-step2-bom-ev6-vmc-step2-bom-vmc-step2-cad-getuserpermission-rewrite-path-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, vmc-step2-bom-ev6-vmc-step2-bom-vmc-step2-cad-acl , getuserpermission-rewrite-path
+spec:
+  ingressClassName: kong
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+          service:
+            name: vmcbom-services-public-k6-v6-apiv1
+            port:
+              number: 80
+        path: /pcs/vmcbom/v1/GetUserPermission
+        pathType: ImplementationSpecific
+

@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: variant-eth-service-table-rewrite-path
+config:
+  replace:
+    uri: /data/variant:Ethservicetable
+plugin: request-transformer

@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: network-frame-eth-signalbased-rewrite-path
+config:
+  replace:
+    uri: /data/network:Ethsignalbasedframe
+plugin: request-transformer

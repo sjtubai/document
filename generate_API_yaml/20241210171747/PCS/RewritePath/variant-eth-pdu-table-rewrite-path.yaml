@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: variant-eth-pdu-table-rewrite-path
+config:
+  replace:
+    uri: /data/variant:Ethpdutable
+plugin: request-transformer

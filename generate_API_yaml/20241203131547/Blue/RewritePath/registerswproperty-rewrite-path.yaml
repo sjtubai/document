@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: registerswproperty-rewrite-path
+config:
+  replace:
+    uri: /RegisterSWProperty
+plugin: request-transformer

@@ -23,7 +23,8 @@ git add -A
 git commit -m "モビスキャン作成"
 git commit -m "datadog"
 git push
- 
+git status -uall
+
 git branch -a
 git checkout --force delivery/factory_rex
 git checkout develop

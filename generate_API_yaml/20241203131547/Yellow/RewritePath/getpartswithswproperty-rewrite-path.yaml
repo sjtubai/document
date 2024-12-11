@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: getpartswithswproperty-rewrite-path
+config:
+  replace:
+    uri: /GetPartsWithSWProperty
+plugin: request-transformer

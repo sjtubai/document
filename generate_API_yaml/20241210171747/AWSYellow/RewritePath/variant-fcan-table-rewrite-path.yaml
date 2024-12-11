@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: variant-fcan-table-rewrite-path
+config:
+  replace:
+    uri: /data/variant:Fcantable
+plugin: request-transformer

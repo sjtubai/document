@@ -48,7 +48,7 @@ showapp vmcbom-services-public-k6-v6-apiv1
 upapp vmcbom-services-public-k6-v6-apiv1 1.8.2411-update.8
 
 rancher context switch
-rancher context switch c-jd4zb:p-4fvfr && rancher ps
+rancher context switch c-mhdxl:p-5gczp && rancher ps
 rancher ps
 type addch
 
@@ -88,6 +88,8 @@ Grep置換①/blue　→　/pcs
 Grep置換②-qa　→　-pcs
 kubectl apply -f RewritePath\getbusinesssegfrompartnum-rewrite-path.yaml -n vmcbom-services-public-api --kubeconfig=C:\kubectl\PCS-kubeconfig
 kubectl apply -f ContainerAPI\getbusinesssegfrompartnum-23-ingress.yaml -n vmcbom-services-public-api --kubeconfig=C:\kubectl\PCS-kubeconfig
+kubectl apply -f RewritePath\network-eth-service-rewrite-path.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
+kubectl apply -f ContainerAPI\network-eth-service-23-ingress.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
 886ad165-eb9e-4603-a223-8b69de7f9efa
 
 ０．bitbucketからソースコードをCloneする

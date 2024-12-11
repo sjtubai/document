@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: network-frame-eth-service-23-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, vmc-step2h-ene-acl , network-frame-eth-service-rewrite-path
+spec:
+  rules:
+  - host: vmc-osb.hm.jp.honda.com
+    http:
+      paths:
+      - backend:
+          serviceName: vmceeph2-services-public-eeph2h-1-apiv1
+          servicePort: 80
+        path: /vmceeph2/v1/data/network:Ethservicebasedframe
+        pathType: ImplementationSpecific
+

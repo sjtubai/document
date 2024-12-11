@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: A15の位置の値
+config:
+  replace:
+    uri: /A8の位置の値
+plugin: request-transformer

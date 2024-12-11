@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ifcad-atl19-vmc-step2-cad-rewrite-path-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, vmc-step2-cad-acl , rewrite-path
+spec:
+  rules:
+  - host: vmc-osb-itb.hm.jp.honda.com
+    http:
+      paths:
+      - backend:
+          serviceName: vmccad-services-public-designcmf-apiv1
+          servicePort: 80
+        path: /yellow/vmccad/v1/(CMFInformation/get)
+        pathType: ImplementationSpecific
+

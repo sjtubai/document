@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: A10の位置の値
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, A14の位置の値 , A15の位置の値
+spec:
+  ingressClassName: kong
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+          service:
+            name: A20の位置の値
+            port:
+              number: A21の位置の値
+        path: A23の位置の値
+        pathType: ImplementationSpecific
+

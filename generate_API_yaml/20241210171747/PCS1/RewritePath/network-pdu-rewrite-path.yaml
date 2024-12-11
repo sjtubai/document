@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: network-pdu-rewrite-path
+config:
+  replace:
+    uri: /data/network:Pdu
+plugin: request-transformer

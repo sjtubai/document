@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: registerswproperty-23-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: apikey, vmc-step2-bom-acl , registerswproperty-rewrite-path
+spec:
+  rules:
+  - host: vmc-osb-qa.hm.jp.honda.com
+    http:
+      paths:
+      - backend:
+          serviceName: vmcbom-services-public-rex-apiv1
+          servicePort: 80
+        path: /blue/vmcbom/v1/RegisterSWProperty
+        pathType: ImplementationSpecific
+

@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: getuserpermission-rewrite-path
+config:
+  replace:
+    uri: /getUserPermission/dispatch
+plugin: request-transformer
