@@ -21,7 +21,11 @@ git log -n 3 publish-spec.yaml
 git rm -r --cached .
 git add -A
 git commit -m "モビスキャン作成"
-git commit -m "datadog"
+git rebase -i HEAD~2
+修正したいコミットメッセージのpickをeditに変更する
+修正したいコミットメッセージのpickをrewordに変更する
+git commit --amend -m "#34664 プロパティ更新"
+git rebase --continue
 git push
 git status -uall
 
