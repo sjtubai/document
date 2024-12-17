@@ -52,7 +52,7 @@ rancher context switch c-mhdxl:p-5gczp && rancher ps
 rancher ps
 type addch
 
-https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=95671643#id-[MSA/ATLASIF]MicroServiceArchitecture%E9%81%8B%E7%94%A8%E6%89%8B%E5%BC%95%E3%81%8D-MSA%E9%81%8B%E7%94%A8%E6%89%8B%E5%BC%95%E3%81%8D
+https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=95671643
 https://orca.rd.honda.co.jp/confluence/pages/viewpage.action?pageId=242335907
 
 admin/zabbix

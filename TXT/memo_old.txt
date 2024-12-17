@@ -175,7 +175,8 @@ grep .engine deepstream-app/src/scripts/template_config_for_mask/deepstream-app-
 grep .engine result_config/deepstream-app-config.txt
 grep .engine result_config_for_mask/deepstream-app-config.txt
 sudo bash object_detection.sh objectdetection_container 30c630b930c8 2023-01-01T00:00:00 1
- 
+sudo find /vol3/v6infra/work/deploy/DB -name "*.sh" -o -name "*.sql" -print0|xargs -0 grep -n "PIVOT(MAX(PART_ATTR_VALUE)"
+
 curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/gpsPosition?district_id=4&extract_start_time=2024-05-17%2001:43:00.111&extract_end_time=2024-05-17%2001:43:59.999
 curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/detectedConstruction?district_id=4&extract_start_time=2024-05-20%2001:00:00.001&extract_end_time=2024-05-20%2001:09:59.999
 curl -H "x-api-key: 6ab81074-330b-4f78-b062-8ef6c08f7cd4" https://mobiscan.test.maxiv.doco-open2.jp/maxiv-mobility-scan/api/v1/movie/12134/a4bb7152-9082-4507-8089-eef95d03cb63.mp4
