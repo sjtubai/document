@@ -90,6 +90,8 @@ kubectl apply -f RewritePath\getbusinesssegfrompartnum-rewrite-path.yaml -n vmcb
 kubectl apply -f ContainerAPI\getbusinesssegfrompartnum-23-ingress.yaml -n vmcbom-services-public-api --kubeconfig=C:\kubectl\PCS-kubeconfig
 kubectl apply -f RewritePath\network-eth-service-rewrite-path.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
 kubectl apply -f ContainerAPI\network-eth-service-23-ingress.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
+kubectl delete -f RewritePath\network-frame-fcan-rewrite-path.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
+kubectl delete -f ContainerAPI\network-frame-fcan-23-ingress.yaml -n vmceeph2-services-public-api --kubeconfig=C:\kubectl\Yellow-kubeconfig
 886ad165-eb9e-4603-a223-8b69de7f9efa
 
 ０．bitbucketからソースコードをCloneする

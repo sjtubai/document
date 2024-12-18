@@ -163,6 +163,7 @@ kubectl scale deployment bom1-deployment --replicas=0
 kubectl scale deployment bom1-deployment --replicas=1
 kubectl rollout restart deployment locust-worker-mobiscan
 kubectl logs -f --tail=100 pod/bom2-76c646d77d-kvlmc
+kubectl get KongConsumer vmc-step2-ene -n vmceeph2-services-public-api -o yaml
  
 object_detection.sh
 sed -i -e '/^model-engine-file=\/workspace\/project\/primary.engine$/{s//model-engine-file=\/workspace\/project\/work\/construction_model_b1.engine/;h};${x;/./{x;q0};x;q1}' /home/ec2-user/package_v1.1/mobiscan-common/result_config/deepstream-app-config.txt
